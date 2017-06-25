@@ -4,7 +4,9 @@ import au.com.payroll.config.BootstapData;
 import au.com.payroll.ui.ConsoleImpl;
 
 /**
- * Created by rnadeera on 12/6/17.
+ * Entry point to start the application
+ *
+ * @author rnadeera
  */
 public class Application {
     public static void main(String[] args){

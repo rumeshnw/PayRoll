@@ -37,6 +37,7 @@ dependencies {
 
     runtime group: 'hsqldb', name: 'hsqldb', version: '1.8.0.7'
 
+    testCompile 'org.springframework:spring-context:4.3.9.RELEASE'
     testCompile 'org.springframework:spring-test:4.3.8.RELEASE'
     testCompile 'org.codehaus.groovy:groovy-all:2.4.7'
     testCompile 'org.spockframework:spock-core:1.0-groovy-2.4'
