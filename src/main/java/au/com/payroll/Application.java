@@ -1,6 +1,6 @@
 package au.com.payroll;
 
-import au.com.payroll.config.BootstapData;
+import au.com.payroll.config.BootstrapData;
 import au.com.payroll.ui.ConsoleImpl;
 
 /**
@@ -20,6 +20,6 @@ public class Application {
      *
      */
     private static void initBootstrap(){
-        new BootstapData().initData();
+        new BootstrapData().initData();
     }
 }

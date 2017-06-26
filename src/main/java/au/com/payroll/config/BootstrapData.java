@@ -13,7 +13,7 @@ import java.util.List;
  *
  * @author rnadeera
  */
-public class BootstapData implements Transactional {
+public class BootstrapData implements Transactional {
 
     public void initData(){
         initIncomeTaxData();
