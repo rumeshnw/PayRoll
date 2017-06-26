@@ -16,11 +16,7 @@ public class GrossIncomeDecorator extends PaySlipDecorator {
 
     @Override
     public PaySlip generatePaySlip(PaySlip.PaySlipBuilder paySlipBuilder, Employee employee) {
-        setGrossIncome(paySlipBuilder, employee);
-        return super.generatePaySlip(paySlipBuilder, employee);
-    }
-
-    public void setGrossIncome(PaySlip.PaySlipBuilder paySlipBuilder, Employee employee){
         paySlipBuilder.setGrossIncome(Math.round(new Double(employee.getAnnualSalary()) / 12));
+        return super.generatePaySlip(paySlipBuilder, employee);
     }
 }

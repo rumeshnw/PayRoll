@@ -4,7 +4,7 @@ import au.com.payroll.dto.Employee;
 import au.com.payroll.dto.PaySlip;
 
 /**
- *
+ *  Implementation of {@link PaySlipHandler}
  *
  * @author rnadeera
  */

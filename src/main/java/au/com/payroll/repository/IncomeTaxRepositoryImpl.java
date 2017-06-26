@@ -35,6 +35,6 @@ public class IncomeTaxRepositoryImpl implements IncomeTaxRespository, Transactio
             query.setParameter("income", income);
             results.add(query.getSingleResult());
         });
-        return results.get(0);
+        return results.isEmpty() ? null : results.get(0);
     }
 }

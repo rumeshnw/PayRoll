@@ -63,32 +63,39 @@ public class PaySlip {
         private long netIncome;
         private long superannuation;
 
-        public void setFirstName(String firstName) {
+        public PaySlipBuilder setFirstName(String firstName) {
             this.firstName = firstName;
+            return this;
         }
 
-        public void setLastName(String lastName) {
+        public PaySlipBuilder setLastName(String lastName) {
             this.lastName = lastName;
+            return this;
         }
 
-        public void setPayPeriod(String payPeriod) {
+        public PaySlipBuilder setPayPeriod(String payPeriod) {
             this.payPeriod = payPeriod;
+            return this;
         }
 
-        public void setGrossIncome(long grossIncome) {
+        public PaySlipBuilder setGrossIncome(long grossIncome) {
             this.grossIncome = grossIncome;
+            return this;
         }
 
-        public void setIncomeTax(long incomeTax) {
+        public PaySlipBuilder setIncomeTax(long incomeTax) {
             this.incomeTax = incomeTax;
+            return this;
         }
 
-        public void setNetIncome(long netIncome) {
+        public PaySlipBuilder setNetIncome(long netIncome) {
             this.netIncome = netIncome;
+            return this;
         }
 
-        public void setSuperannuation(long superannuation) {
+        public PaySlipBuilder setSuperannuation(long superannuation) {
             this.superannuation = superannuation;
+            return this;
         }
 
         public long getGrossIncome() {

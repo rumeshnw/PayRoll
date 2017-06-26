@@ -4,6 +4,7 @@ import au.com.payroll.domain.IncomeTax;
 import au.com.payroll.dto.Employee;
 import au.com.payroll.dto.PaySlip;
 import au.com.payroll.repository.IncomeTaxRepositoryImpl;
+import org.springframework.util.Assert;
 
 /**
  * Concrete decorator to calculate income tax
@@ -25,6 +26,8 @@ public class IncomeTaxDecorator extends PaySlipDecorator {
     private long calculateTax(Employee employee){
 
         IncomeTax incomeTax = IncomeTaxRepositoryImpl.getInstance().findByIncomeBracket(employee.getAnnualSalary());
+        Assert.notNull(incomeTax, "Tax definition not available");
+
         if(incomeTax.isTaxable()){
             return Math.round((incomeTax.getMarginalTax() + (employee.getAnnualSalary() - incomeTax.getThreshold()) * incomeTax.getUnitRate()) / 12);
         }
