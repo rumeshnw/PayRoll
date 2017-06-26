@@ -24,5 +24,30 @@ This system uses Gradle build system(version 3.1). However, to use this applicat
     - Unix      : _./gradlew clean run_
     - Windows   : _gradlew clean run_
     
+Once application is started, user will be asked to input employee details in following format:
+
+    First Name,Last Name,Annual Salary,Super Percentage,Pay Period(MM/YYYY)
+
+Example format:
+
+    David,Rudd,60050,9,3/2017
+        
+Generated pay slip will be printed as follows,
     
-Test coverage report can be found under /PayRoll/build/reports/coverage/index.html
+    ------------ Pay Slip ------------
+    Pay Period:     Month of March (1 March to 31 March)
+    Employee:       David Rudd
+    Gross Income:   5004
+    Income Tax:     922
+    Net Income:     4082
+    Superannuation: 450
+
+    
+Test coverage report can be found under _/PayRoll/build/reports/coverage/index.html_
+
+Assumptions:
+
+    1. User has to enter comma separated employee details as mentioned above in Command Line
+    2. No spaces allowed between commas. If exists, system will show _Invalid input format. Please enter valid format and try again (Eg: John,Doe,60500,9,3/2017)._ message
+    3. Superannuation percentage can either be define as an integer value or a double value with two decimal places. Eg: both 9 and 9.00 is considered as a valid super percentage
+    4. Pay period should be define as numeric MM/YYYY format. Month can be defined with or without preceding zero. Eg: both 03/2017 and 3/2017 will be considered as a valid pay period
