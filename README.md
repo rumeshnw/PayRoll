@@ -48,6 +48,6 @@ Test coverage report can be found under _/PayRoll/build/reports/coverage/index.h
 Assumptions:
 
     1. User has to enter comma separated employee details as mentioned above in Command Line
-    2. No spaces allowed between commas. If exists, system will show _Invalid input format. Please enter valid format and try again (Eg: John,Doe,60500,9,3/2017)._ message
+    2. No spaces are allowed in between commas. If exists, system will show _Invalid input format. Please enter valid format and try again (Eg: John,Doe,60500,9,3/2017)._ message
     3. Superannuation percentage can either be define as an integer value or a double value with two decimal places. Eg: both 9 and 9.00 is considered as a valid super percentage
     4. Pay period should be define as numeric MM/YYYY format. Month can be defined with or without preceding zero. Eg: both 03/2017 and 3/2017 will be considered as a valid pay period
