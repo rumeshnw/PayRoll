@@ -14,7 +14,7 @@ import java.util.regex.Pattern;
  */
 public class ConsoleImpl implements Console {
 
-    private static Pattern consoleInputPattern = Pattern.compile("[A-Za-z]*,[A-Za-z]*,\\d*,\\d{1,2}(\\.\\d{1,2})?,([1-9]|1[0-2])/20\\d{2}");
+    private static Pattern consoleInputPattern = Pattern.compile("[A-Za-z]*,[A-Za-z]*,\\d*,\\d{1,2}(\\.\\d{1,2})?,((0)?[1-9]|1[0-2])/20\\d{2}");
 
     private ExceptionHandler exceptionHandler = ExceptionHandlerImpl.getInstance();
 
