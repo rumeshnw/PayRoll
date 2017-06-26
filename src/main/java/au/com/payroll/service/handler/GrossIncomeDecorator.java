@@ -4,6 +4,8 @@ import au.com.payroll.dto.Employee;
 import au.com.payroll.dto.PaySlip;
 
 /**
+ * Concrete decorator calculate gross income
+ *
  * @author rnadeera
  */
 public class GrossIncomeDecorator extends PaySlipDecorator {

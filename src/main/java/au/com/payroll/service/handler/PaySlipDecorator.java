@@ -4,9 +4,11 @@ import au.com.payroll.dto.Employee;
 import au.com.payroll.dto.PaySlip;
 
 /**
+ * Abstract decorator class to add functionality dynamically to generate pay slip
+ *
  * @author rnadeera
  */
-public abstract class PaySlipDecorator extends PaySlipHandler {
+public abstract class PaySlipDecorator implements PaySlipHandler {
 
     private PaySlipHandler paySlipHandler;
 

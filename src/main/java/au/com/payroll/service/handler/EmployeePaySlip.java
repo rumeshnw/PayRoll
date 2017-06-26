@@ -4,9 +4,11 @@ import au.com.payroll.dto.Employee;
 import au.com.payroll.dto.PaySlip;
 
 /**
+ *
+ *
  * @author rnadeera
  */
-public class EmployeePaySlip extends PaySlipHandler {
+public class EmployeePaySlip implements PaySlipHandler {
 
 
     @Override

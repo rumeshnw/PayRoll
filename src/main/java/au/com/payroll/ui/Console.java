@@ -12,6 +12,8 @@ import java.util.function.Consumer;
  */
 public interface Console {
 
+    String EXIT_OPTION = "EXIT";
+
     void start();
 
     default void withScanner(Consumer<Scanner> consumer){
@@ -24,7 +26,6 @@ public interface Console {
     }
 
     default String trimUserInput(Scanner scanner){
-        String strValue = StringUtils.trim(scanner.nextLine());
-        return StringUtils.isEmpty(strValue) ? null : strValue;
+        return StringUtils.trimToNull(scanner.nextLine());
     }
 }

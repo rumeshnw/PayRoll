@@ -45,7 +45,7 @@ public class PaySlip {
 
     @Override
     public String toString() {
-        return "PaySlip ----- " + "\n" +
+        return "------------ Pay Slip ------------" + "\n" +
                 "Pay Period:     " + payPeriod + "\n" +
                 "Employee:       " + firstName + " " + lastName + "\n" +
                 "Gross Income:   " + grossIncome + "\n" +

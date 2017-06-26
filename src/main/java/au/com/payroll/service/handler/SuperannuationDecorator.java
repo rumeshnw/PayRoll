@@ -4,6 +4,8 @@ import au.com.payroll.dto.Employee;
 import au.com.payroll.dto.PaySlip;
 
 /**
+ * Concrete decorator to calculate superannuation
+ *
  * @author rnadeera
  */
 public class SuperannuationDecorator extends PaySlipDecorator {

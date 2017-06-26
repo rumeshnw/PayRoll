@@ -6,6 +6,8 @@ import au.com.payroll.dto.PaySlip;
 import au.com.payroll.repository.IncomeTaxRepositoryImpl;
 
 /**
+ * Concrete decorator to calculate income tax
+ *
  * @author rnadeera
  */
 public class IncomeTaxDecorator extends PaySlipDecorator {

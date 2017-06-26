@@ -11,6 +11,8 @@ import static java.time.temporal.TemporalAdjusters.lastDayOfMonth;
 import static java.time.temporal.TemporalAdjusters.firstDayOfMonth;
 
 /**
+ * Concrete decorator to add payment period
+ *
  * @author rnadeera
  */
 public class PayPeriodDecorator extends PaySlipDecorator {

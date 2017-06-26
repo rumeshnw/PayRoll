@@ -4,6 +4,8 @@ import au.com.payroll.dto.Employee;
 import au.com.payroll.dto.PaySlip;
 
 /**
+ * Concrete decorator to calculate net income
+ *
  * @author rnadeera
  */
 public class NetIncomeDecorator extends PaySlipDecorator {

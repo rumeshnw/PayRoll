@@ -12,6 +12,17 @@ public class ExceptionHandlerImpl implements ExceptionHandler {
 
     final static Logger logger = Logger.getLogger(ExceptionHandlerImpl.class);
 
+    private static ExceptionHandler exceptionHandler;
+
+    private ExceptionHandlerImpl(){
+
+    }
+
+    public static ExceptionHandler getInstance(){
+        exceptionHandler = exceptionHandler == null ? new ExceptionHandlerImpl():exceptionHandler;
+        return exceptionHandler;
+    }
+
     @Override
     public String translate(Exception e) {
         String message;
