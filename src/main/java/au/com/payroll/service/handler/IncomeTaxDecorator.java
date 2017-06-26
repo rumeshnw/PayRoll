@@ -4,6 +4,7 @@ import au.com.payroll.domain.IncomeTax;
 import au.com.payroll.dto.Employee;
 import au.com.payroll.dto.PaySlip;
 import au.com.payroll.repository.IncomeTaxRepositoryImpl;
+import au.com.payroll.repository.IncomeTaxRespository;
 import org.springframework.util.Assert;
 
 /**
@@ -12,6 +13,8 @@ import org.springframework.util.Assert;
  * @author rnadeera
  */
 public class IncomeTaxDecorator extends PaySlipDecorator {
+
+    IncomeTaxRespository incomeTaxRespository = IncomeTaxRepositoryImpl.getInstance();
 
     public IncomeTaxDecorator(PaySlipHandler paySlipHandler) {
         super(paySlipHandler);
@@ -25,7 +28,7 @@ public class IncomeTaxDecorator extends PaySlipDecorator {
 
     private long calculateTax(Employee employee){
 
-        IncomeTax incomeTax = IncomeTaxRepositoryImpl.getInstance().findByIncomeBracket(employee.getAnnualSalary());
+        IncomeTax incomeTax = incomeTaxRespository.findByIncomeBracket(employee.getAnnualSalary());
         Assert.notNull(incomeTax, "Tax definition not available");
 
         if(incomeTax.isTaxable()){

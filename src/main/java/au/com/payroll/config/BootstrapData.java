@@ -22,11 +22,11 @@ public class BootstrapData implements Transactional {
     private void initIncomeTaxData(){
         withTransaction((Session session) -> {
             List<IncomeTax> incomeTaxes = new ArrayList<>();
-            incomeTaxes.add(new IncomeTax(0l, 18200l, 0l, 0.0, 0.0));
-            incomeTaxes.add(new IncomeTax(18201l, 37000l, 0l, 0.19, 18200.0));
-            incomeTaxes.add(new IncomeTax(37001l, 80000l, 3572l, 0.325, 37000.0));
-            incomeTaxes.add(new IncomeTax(80001l, 180000l, 17547l, 0.37, 80000.0));
-            incomeTaxes.add(new IncomeTax(1800001l, 99999999999l, 54547l, 0.45, 180000.0));
+            incomeTaxes.add(new IncomeTax(0, 18200, 0, 0.0, 0.0));
+            incomeTaxes.add(new IncomeTax(18201, 37000, 0, 0.19, 18200.0));
+            incomeTaxes.add(new IncomeTax(37001, 80000, 3572, 0.325, 37000.0));
+            incomeTaxes.add(new IncomeTax(80001, 180000, 17547, 0.37, 80000.0));
+            incomeTaxes.add(new IncomeTax(1800001, 999999999, 54547, 0.45, 180000.0));
 
             incomeTaxes.forEach(incomeTax -> session.save(incomeTax));
         });

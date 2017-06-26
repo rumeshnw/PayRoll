@@ -18,17 +18,13 @@ public class IncomeTaxRepositoryImpl implements IncomeTaxRespository, Transactio
 
     private static IncomeTaxRespository incomeTaxRespository;
 
-    private IncomeTaxRepositoryImpl(){
-
-    }
-
     public static IncomeTaxRespository getInstance(){
         incomeTaxRespository = (incomeTaxRespository == null) ? new IncomeTaxRepositoryImpl() : incomeTaxRespository;
         return incomeTaxRespository;
     }
 
     @Override
-    public IncomeTax findByIncomeBracket(long income) {
+    public IncomeTax findByIncomeBracket(int income) {
         List<IncomeTax> results = new ArrayList();
         withTransaction((Session session) -> {
             Query<IncomeTax> query = session.createQuery("from IncomeTax t where t.incomeFrom <= :income and t.incomeTo >= :income", IncomeTax.class);

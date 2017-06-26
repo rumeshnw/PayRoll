@@ -18,13 +18,13 @@ public class IncomeTax {
     private Long id;
 
     @Column(nullable = false)
-    private Long incomeFrom;
+    private Integer incomeFrom;
 
     @Column(nullable = false)
-    private Long incomeTo;
+    private Integer incomeTo;
 
     @Column(nullable = false)
-    private Long marginalTax;
+    private Integer marginalTax;
 
     @Column(nullable = false)
     private Double unitRate;
@@ -40,27 +40,27 @@ public class IncomeTax {
         this.id = id;
     }
 
-    public Long getIncomeFrom() {
+    public Integer getIncomeFrom() {
         return incomeFrom;
     }
 
-    public void setIncomeFrom(Long incomeFrom) {
+    public void setIncomeFrom(Integer incomeFrom) {
         this.incomeFrom = incomeFrom;
     }
 
-    public Long getIncomeTo() {
+    public Integer getIncomeTo() {
         return incomeTo;
     }
 
-    public void setIncomeTo(Long incomeTo) {
+    public void setIncomeTo(Integer incomeTo) {
         this.incomeTo = incomeTo;
     }
 
-    public Long getMarginalTax() {
+    public Integer getMarginalTax() {
         return marginalTax;
     }
 
-    public void setMarginalTax(Long marginalTax) {
+    public void setMarginalTax(Integer marginalTax) {
         this.marginalTax = marginalTax;
     }
 
@@ -83,7 +83,7 @@ public class IncomeTax {
     public IncomeTax() {
     }
 
-    public IncomeTax(Long incomeFrom, Long incomeTo, Long marginalTax, Double unitRate, Double threshold) {
+    public IncomeTax(Integer incomeFrom, Integer incomeTo, Integer marginalTax, Double unitRate, Double threshold) {
         this.incomeFrom = incomeFrom;
         this.incomeTo = incomeTo;
         this.marginalTax = marginalTax;

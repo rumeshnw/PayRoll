@@ -13,5 +13,5 @@ public interface IncomeTaxRespository {
      * @param income Annual salary of the employee
      * @return {@link IncomeTax} instance
      */
-    IncomeTax findByIncomeBracket(long income);
+    IncomeTax findByIncomeBracket(int income);
 }

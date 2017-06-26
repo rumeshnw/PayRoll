@@ -29,8 +29,8 @@ public class ConsoleImpl implements Console {
                 userInput = scanner.nextLine();
 
                 switch (userInput){
-                    case "EXIT":
-                        System.out.println("Good bye. Have a nice day !!!");
+                    case EXIT_OPTION:
+                        System.out.println("See you soon. Have a nice day!!!");
                         break;
                     default:
                         if(consoleInputPattern.matcher(userInput).matches()){

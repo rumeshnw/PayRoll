@@ -34,9 +34,10 @@ dependencies {
     compile 'org.hibernate:hibernate-entitymanager:5.2.10.Final'
     compile 'org.hibernate:hibernate-validator:5.2.1.Final'
     compile 'org.hibernate:hibernate-validator-annotation-processor:5.2.1.Final'
-    compile group: 'log4j', name: 'log4j', version: '1.2.17'
 
-    runtime group: 'hsqldb', name: 'hsqldb', version: '1.8.0.7'
+    compile 'log4j:log4j:1.2.17'
+
+    runtime 'hsqldb:hsqldb:1.8.0.7'
 
     testCompile 'org.springframework:spring-test:4.3.8.RELEASE'
     testCompile 'org.codehaus.groovy:groovy-all:2.4.7'
