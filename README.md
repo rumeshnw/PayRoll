@@ -24,13 +24,12 @@ This system uses Gradle build system(version 3.1). However, to use this applicat
     - Unix      : _./gradlew clean run_
     - Windows   : _gradlew clean run_
     
-Once application is started, user will be asked to input employee details in following format:
-
-    First Name,Last Name,Annual Salary,Super Percentage,Pay Period(MM/YYYY)
-
-Example format:
-
-    David,Rudd,60050,9,3/2017
+Once user execute the Run System command, system will boot up and show list of options with following operations,
+    
+    1. Generate employee pay slip
+    99. Exit the system
+    
+Once user proceed with Generate employee pay slip, system will request multiple inputs in an interactive CLI to generate the pay slip. 
         
 Generated pay slip will be printed as follows,
     
