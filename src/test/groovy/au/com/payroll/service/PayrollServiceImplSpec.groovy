@@ -4,13 +4,7 @@ import au.com.payroll.dto.Employee
 import au.com.payroll.dto.PaySlip
 import au.com.payroll.factory.ResourceFactory
 import au.com.payroll.service.process.EmployeePaySlipGenerator
-import au.com.payroll.service.process.PaySlipGenerator
-import org.junit.Rule
-import org.mockito.Mockito
-import org.powermock.api.mockito.PowerMockito
-import org.powermock.modules.junit4.rule.PowerMockRule
 import spock.lang.Specification
-import spock.util.mop.ConfineMetaClassChanges
 
 /**
  * Created by rnadeera on 26/6/17.
