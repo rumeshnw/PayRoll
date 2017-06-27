@@ -7,7 +7,6 @@ This system uses Gradle build system(version 3.1). However, to use this applicat
 
 **Commands**
 
-
 1. Run Unit Tests
     - Unix      : _./gradlew clean test_
     - Windows   : _gradlew clean test_
@@ -42,7 +41,7 @@ Generated pay slip will be printed as follows,
     Superannuation: 450
 
     
-Test coverage report can be found under _/PayRoll/build/reports/coverage/index.html_
+Test coverage report can be found under _/Payroll/build/reports/coverage/index.html_
 
 Assumptions:
 
