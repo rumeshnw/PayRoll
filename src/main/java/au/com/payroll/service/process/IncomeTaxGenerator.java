@@ -4,7 +4,6 @@ import au.com.payroll.domain.IncomeTax;
 import au.com.payroll.dto.Employee;
 import au.com.payroll.dto.PaySlip;
 import au.com.payroll.factory.ResourceFactory;
-import au.com.payroll.repository.IncomeTaxRepositoryImpl;
 import au.com.payroll.repository.IncomeTaxRespository;
 import org.springframework.util.Assert;
 
@@ -13,7 +12,7 @@ import org.springframework.util.Assert;
  *
  * @author rnadeera
  */
-public class IncomeTaxGenerator extends PaySlipDecorator {
+public class IncomeTaxGenerator extends AbstractPaySlipGenerator {
 
     IncomeTaxRespository incomeTaxRespository = ResourceFactory.getIncomeTaxRespository();
 

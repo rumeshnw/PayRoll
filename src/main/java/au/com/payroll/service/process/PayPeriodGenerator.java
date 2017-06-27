@@ -15,7 +15,7 @@ import static java.time.temporal.TemporalAdjusters.firstDayOfMonth;
  *
  * @author rnadeera
  */
-public class PayPeriodGenerator extends PaySlipDecorator {
+public class PayPeriodGenerator extends AbstractPaySlipGenerator {
 
     public PayPeriodGenerator(PaySlipGenerator paySlipGenerator) {
         super(paySlipGenerator);

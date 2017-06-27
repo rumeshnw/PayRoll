@@ -8,7 +8,7 @@ import au.com.payroll.dto.PaySlip;
  *
  * @author rnadeera
  */
-public class SuperannuationGenerator extends PaySlipDecorator {
+public class SuperannuationGenerator extends AbstractPaySlipGenerator {
 
     public SuperannuationGenerator(PaySlipGenerator paySlipGenerator) {
         super(paySlipGenerator);

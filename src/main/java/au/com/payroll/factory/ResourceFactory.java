@@ -13,7 +13,11 @@ import au.com.payroll.ui.handler.ExceptionHandlerImpl;
  *
  * @author rnadeera
  */
-public abstract class ResourceFactory {
+public class ResourceFactory {
+
+    private ResourceFactory(){
+
+    }
 
     public static PayrollService getPayrollService(){
         return new PayrollServiceImpl();
@@ -28,6 +32,30 @@ public abstract class ResourceFactory {
     }
 
     public static PaySlipGenerator getPaySlipGenerator(){
-        return new PayPeriodGenerator(new GrossIncomeGenerator(new IncomeTaxGenerator(new NetIncomeGenerator(new SuperannuationGenerator(new EmployeePaySlipGenerator())))));
+        return getPayPeriodGenerator(getGrossIncomeGenerator(getIncomeTaxGenerator(getNetIncomeGenerator(getSuperannuationGenerator(getEmployeePaySlipGenerator())))));
+    }
+
+    private static PaySlipGenerator getEmployeePaySlipGenerator(){
+        return new EmployeePaySlipGenerator();
+    }
+
+    private static PaySlipGenerator getSuperannuationGenerator(PaySlipGenerator paySlipGenerator){
+        return new SuperannuationGenerator(paySlipGenerator);
+    }
+
+    private static PaySlipGenerator getNetIncomeGenerator(PaySlipGenerator paySlipGenerator){
+        return new NetIncomeGenerator(paySlipGenerator);
+    }
+
+    private static PaySlipGenerator getIncomeTaxGenerator(PaySlipGenerator paySlipGenerator){
+        return new IncomeTaxGenerator(paySlipGenerator);
+    }
+
+    private static PaySlipGenerator getGrossIncomeGenerator(PaySlipGenerator paySlipGenerator){
+        return new GrossIncomeGenerator(paySlipGenerator);
+    }
+
+    private static PaySlipGenerator getPayPeriodGenerator(PaySlipGenerator paySlipGenerator){
+        return new PayPeriodGenerator(paySlipGenerator);
     }
 }

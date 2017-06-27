@@ -8,11 +8,11 @@ import au.com.payroll.dto.PaySlip;
  *
  * @author rnadeera
  */
-public abstract class PaySlipDecorator implements PaySlipGenerator {
+public abstract class AbstractPaySlipGenerator implements PaySlipGenerator {
 
     private PaySlipGenerator paySlipGenerator;
 
-    public PaySlipDecorator(PaySlipGenerator paySlipGenerator) {
+    public AbstractPaySlipGenerator(PaySlipGenerator paySlipGenerator) {
         this.paySlipGenerator = paySlipGenerator;
     }
 
