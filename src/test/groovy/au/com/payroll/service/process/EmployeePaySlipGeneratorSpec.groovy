@@ -1,4 +1,4 @@
-package au.com.payroll.service.handler
+package au.com.payroll.service.process
 
 import au.com.payroll.dto.Employee
 import au.com.payroll.dto.PaySlip
@@ -7,12 +7,12 @@ import spock.lang.Specification
 /**
  * @author rnadeera
  */
-class EmployeePaySlipSpec extends Specification {
+class EmployeePaySlipGeneratorSpec extends Specification {
 
-    private EmployeePaySlip employeePaySlip
+    private EmployeePaySlipGenerator employeePaySlipGenerator
 
     def setup(){
-        employeePaySlip = new EmployeePaySlip()
+        employeePaySlipGenerator = new EmployeePaySlipGenerator()
     }
 
     def "test generatePaySlip, should generate PaySlip with first name and last name assigned from employee instance"(){
@@ -20,7 +20,7 @@ class EmployeePaySlipSpec extends Specification {
         Employee employee = new Employee.EmployeeBuilder().setFirstName("John").setLastName("Doe").build()
 
         when:
-        PaySlip paySlip = employeePaySlip.generatePaySlip(new PaySlip.PaySlipBuilder(), employee)
+        PaySlip paySlip = employeePaySlipGenerator.generatePaySlip(new PaySlip.PaySlipBuilder(), employee)
 
         then:
         paySlip.getFirstName() == employee.getFirstName()

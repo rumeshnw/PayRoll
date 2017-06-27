@@ -1,5 +1,11 @@
 package au.com.payroll.dto;
 
+import au.com.payroll.util.Validator;
+
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+
 /**
  * Data transfer objects holds employee pay roll data
  *
@@ -7,10 +13,22 @@ package au.com.payroll.dto;
  */
 public class Employee {
 
+    //private static final Pattern payPeriodValidator = Pattern.compile("((0)?[1-9]|1[0-2])/20\\d{2}");
+
+    @NotNull(message = "Employee first name is required")
     private String firstName;
+
+    @NotNull(message = "Employee last name is required")
     private String lastName;
+
+    @Min(value = 1, message = "Employee annual salary should be a positive value")
     private int annualSalary;
+
+    @Min(value = 0, message = "Employee superannuation rate should be a positive value")
     private double superRate;
+
+    @NotNull(message = "Employee pay paid is required")
+    @Pattern(regexp = "((0)?[1-9]|1[0-2])/20\\d{2}", message = "Invalid pay period. Pay period should be in numeric MM/YYYY format")
     private String payPeriod;
 
     public String getFirstName() {
@@ -31,6 +49,10 @@ public class Employee {
 
     public String getPayPeriod() {
         return payPeriod;
+    }
+
+    public void validate(){
+        Validator.validate(this);
     }
 
     public static class EmployeeBuilder {

@@ -9,7 +9,7 @@ import au.com.payroll.transaction.Transactional;
  *
  * @author rnadeera
  */
-public interface PayRollService extends Transactional {
+public interface PayrollService extends Transactional {
 
     /**
      * Generate payslip of given employee

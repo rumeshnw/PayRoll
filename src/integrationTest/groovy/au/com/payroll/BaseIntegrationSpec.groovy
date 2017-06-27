@@ -10,7 +10,7 @@ import spock.lang.Stepwise
 /**
  * @author randeera
  */
-@ContextConfiguration(loader = AnnotationConfigContextLoader.class, classes = Application.class)
+@ContextConfiguration(loader = AnnotationConfigContextLoader.class, classes = ApplicationBootstrap.class)
 @Stepwise
 class BaseIntegrationSpec extends Specification {
 

@@ -1,14 +1,14 @@
-package au.com.payroll.service.handler;
+package au.com.payroll.service.process;
 
 import au.com.payroll.dto.Employee;
 import au.com.payroll.dto.PaySlip;
 
 /**
- *  Implementation of {@link PaySlipHandler}
+ *  Implementation of {@link PaySlipGenerator}
  *
  * @author rnadeera
  */
-public class EmployeePaySlip implements PaySlipHandler {
+public class EmployeePaySlipGenerator implements PaySlipGenerator {
 
 
     @Override

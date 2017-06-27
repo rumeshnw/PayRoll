@@ -16,13 +16,6 @@ import java.util.List;
  */
 public class IncomeTaxRepositoryImpl implements IncomeTaxRespository, Transactional {
 
-    private static IncomeTaxRespository incomeTaxRespository;
-
-    public static IncomeTaxRespository getInstance(){
-        incomeTaxRespository = (incomeTaxRespository == null) ? new IncomeTaxRepositoryImpl() : incomeTaxRespository;
-        return incomeTaxRespository;
-    }
-
     @Override
     public IncomeTax findByIncomeBracket(int income) {
         List<IncomeTax> results = new ArrayList();

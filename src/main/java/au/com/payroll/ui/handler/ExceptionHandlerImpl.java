@@ -12,25 +12,16 @@ public class ExceptionHandlerImpl implements ExceptionHandler {
 
     final static Logger logger = Logger.getLogger(ExceptionHandlerImpl.class);
 
-    private static ExceptionHandler exceptionHandler;
-
-    private ExceptionHandlerImpl(){
-
-    }
-
-    public static ExceptionHandler getInstance(){
-        exceptionHandler = exceptionHandler == null ? new ExceptionHandlerImpl():exceptionHandler;
-        return exceptionHandler;
-    }
-
     @Override
-    public String translate(Exception e) {
+    public String handle(Exception e) {
         String message;
-        if (e instanceof IllegalArgumentException) {
+        if(e instanceof NumberFormatException){
+            message = "Invalid input for numeric value";
+        } else if (e instanceof IllegalArgumentException) {
             message = e.getMessage();
         } else {
-            logger.error("Something went wrong!", e);
-            message = "Something went wrong.  Please contact Administrator.";
+            logger.error("System Error", e);
+            message = "Application malfunctioned.  Please contact Administrator.";
         }
         return message;
     }

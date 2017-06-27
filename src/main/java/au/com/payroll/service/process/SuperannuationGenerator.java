@@ -1,4 +1,4 @@
-package au.com.payroll.service.handler;
+package au.com.payroll.service.process;
 
 import au.com.payroll.dto.Employee;
 import au.com.payroll.dto.PaySlip;
@@ -8,10 +8,10 @@ import au.com.payroll.dto.PaySlip;
  *
  * @author rnadeera
  */
-public class SuperannuationDecorator extends PaySlipDecorator {
+public class SuperannuationGenerator extends PaySlipDecorator {
 
-    public SuperannuationDecorator(PaySlipHandler paySlipHandler) {
-        super(paySlipHandler);
+    public SuperannuationGenerator(PaySlipGenerator paySlipGenerator) {
+        super(paySlipGenerator);
     }
 
     @Override

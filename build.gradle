@@ -18,7 +18,7 @@ apply plugin: 'jacoco'
 
 sourceCompatibility = 1.8
 
-mainClassName = 'au.com.payroll.Application'
+mainClassName = 'au.com.payroll.ApplicationBootstrap'
 
 repositories {
     mavenCentral()

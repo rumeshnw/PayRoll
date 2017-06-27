@@ -1,10 +1,12 @@
 package au.com.payroll.ui;
 
 import au.com.payroll.dto.Employee;
-import au.com.payroll.service.PayRollServiceImpl;
+import au.com.payroll.factory.ResourceFactory;
+import au.com.payroll.service.PayrollService;
 import au.com.payroll.ui.handler.ExceptionHandler;
-import au.com.payroll.ui.handler.ExceptionHandlerImpl;
+import org.springframework.util.StringUtils;
 
+import java.util.Scanner;
 import java.util.regex.Pattern;
 
 /**
@@ -14,59 +16,63 @@ import java.util.regex.Pattern;
  */
 public class ConsoleImpl implements Console {
 
-    private static Pattern consoleInputPattern = Pattern.compile("[A-Za-z]*,[A-Za-z]*,\\d*,\\d{1,2}(\\.\\d{1,2})?,((0)?[1-9]|1[0-2])/20\\d{2}");
-
-    private ExceptionHandler exceptionHandler = ExceptionHandlerImpl.getInstance();
+    private ExceptionHandler exceptionHandler   = ResourceFactory.getExceptionHandler();
+    private PayrollService payrollService       = ResourceFactory.getPayrollService();
 
     @Override
     public void start(){
-        showBanner();
-
         withScanner(scanner -> {
-            String userInput;
+            String option;
             do {
-                System.out.println("To generate employee pay slip, Please enter employee details in comma separated form as (firstName,lastName,AnnualSalary,superPercentage,payPeriod[MM/YYYY]). To close the application enter EXIT.");
-                userInput = scanner.nextLine();
-
-                switch (userInput){
-                    case EXIT_OPTION:
-                        System.out.println("See you soon. Have a nice day!!!");
-                        break;
-                    default:
-                        if(consoleInputPattern.matcher(userInput).matches()){
-                            System.out.println(generatePaySlip(userInput));
-                        } else {
-                            System.out.println("Invalid input format. Please enter valid format and try again (Eg: John,Doe,60500,9,3/2017).");
-                        }
-                        break;
+                showMainMenu();
+                option = scanner.nextLine();
+                try {
+                    switch (option){
+                        case EXIT_OPTION:
+                            System.out.println("See you soon. Have a nice day!!!");
+                            break;
+                        case "1":
+                            System.out.println(generatePaySlip(scanner));
+                            break;
+                        default:
+                            System.out.println("Invalid option. Please enter a valid option and try again.");
+                            break;
+                    }
+                } catch (Exception e){
+                    System.out.println(exceptionHandler.handle(e));
                 }
-
-            } while (!EXIT_OPTION.equals(userInput));
+            } while (!EXIT_OPTION.equals(option));
         });
     }
 
-    private void showBanner(){
-        System.out.println("##################################################################");
-        System.out.println("###################### Welcome to Pay Roll #######################");
-        System.out.println("##################################################################");
+    private void showMainMenu(){
+        System.out.println("Please select any option to proceed..");
+        System.out.println("-- 1. Generate employee pay slip");
+        System.out.println("-- 99. Exit the system");
     }
 
-    private String generatePaySlip(String userInput){
-        String result;
-        try {
-            String[] inputParams = userInput.split(",");
-            Employee employee = new Employee.EmployeeBuilder().setFirstName(inputParams[0])
-                    .setLastName(inputParams[1]).setAnnualSalary(Integer.parseInt(inputParams[2]))
-                    .setSuperRate(Double.parseDouble(inputParams[3])).setPayPeriod(inputParams[4]).build();
+    private String generatePaySlip(Scanner scanner){
 
-            result = PayRollServiceImpl.getInstance().generatePaySlip(employee).toString();
-        } catch (Exception e){
-            result = exceptionHandler.translate(e);
-        }
-        return result;
+        System.out.println("Enter employee contact first name");
+        String firstName = trimUserInput(scanner);
+
+        System.out.println("Enter employee contact last name");
+        String lastName = trimUserInput(scanner);
+
+        System.out.println("Enter employee annual salary");
+        String annualSalary = trimUserInput(scanner);
+
+        System.out.println("Enter superannuation rate");
+        String superRate = trimUserInput(scanner);
+
+        System.out.println("Enter pay period");
+        String payPeriod = trimUserInput(scanner);
+
+        Employee employee = new Employee.EmployeeBuilder().setFirstName(firstName)
+                .setLastName(lastName).setAnnualSalary(Integer.parseInt(annualSalary))
+                .setSuperRate(Double.parseDouble(superRate)).setPayPeriod(payPeriod).build();
+        employee.validate();
+
+        return payrollService.generatePaySlip(employee).toString();
     }
-
-
-
-
 }

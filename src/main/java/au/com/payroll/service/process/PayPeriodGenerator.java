@@ -1,4 +1,4 @@
-package au.com.payroll.service.handler;
+package au.com.payroll.service.process;
 
 import au.com.payroll.dto.Employee;
 import au.com.payroll.dto.PaySlip;
@@ -15,10 +15,10 @@ import static java.time.temporal.TemporalAdjusters.firstDayOfMonth;
  *
  * @author rnadeera
  */
-public class PayPeriodDecorator extends PaySlipDecorator {
+public class PayPeriodGenerator extends PaySlipDecorator {
 
-    public PayPeriodDecorator(PaySlipHandler paySlipHandler) {
-        super(paySlipHandler);
+    public PayPeriodGenerator(PaySlipGenerator paySlipGenerator) {
+        super(paySlipGenerator);
     }
 
     @Override

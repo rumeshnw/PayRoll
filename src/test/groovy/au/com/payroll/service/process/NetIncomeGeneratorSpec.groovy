@@ -1,4 +1,4 @@
-package au.com.payroll.service.handler
+package au.com.payroll.service.process
 
 import au.com.payroll.dto.Employee
 import au.com.payroll.dto.PaySlip
@@ -7,12 +7,12 @@ import spock.lang.Specification
 /**
  * @author rnadeera
  */
-class NetIncomeDecoratorSpec extends Specification {
+class NetIncomeGeneratorSpec extends Specification {
 
-    NetIncomeDecorator netIncomeDecorator
+    NetIncomeGenerator netIncomeGenerator
 
     def setup(){
-        netIncomeDecorator = new NetIncomeDecorator(new EmployeePaySlip())
+        netIncomeGenerator = new NetIncomeGenerator(new EmployeePaySlipGenerator())
     }
 
     def "test generatePaySlip, should calculate and set net income from gross income and income tax in pay slip builder"(){
@@ -20,7 +20,7 @@ class NetIncomeDecoratorSpec extends Specification {
         PaySlip.PaySlipBuilder paySlipBuilder = new PaySlip.PaySlipBuilder().setGrossIncome(5004).setIncomeTax(922)
 
         when:
-        PaySlip paySlip = netIncomeDecorator.generatePaySlip(paySlipBuilder, new Employee.EmployeeBuilder().build())
+        PaySlip paySlip = netIncomeGenerator.generatePaySlip(paySlipBuilder, new Employee.EmployeeBuilder().build())
 
         then:
         paySlip.netIncome == 4082

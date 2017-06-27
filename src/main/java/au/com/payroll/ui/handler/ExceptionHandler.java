@@ -9,10 +9,10 @@ package au.com.payroll.ui.handler;
 public interface ExceptionHandler {
 
     /**
-     * Translates an Exception to a User readable message.
+     * Convert Exception into user readable message
      *
      * @param e {@link Exception}
      * @return {@link String} a User readable message
      * */
-    String translate(Exception e);
+    String handle(Exception e);
 }

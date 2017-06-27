@@ -1,8 +1,9 @@
-package au.com.payroll.service.handler;
+package au.com.payroll.service.process;
 
 import au.com.payroll.domain.IncomeTax;
 import au.com.payroll.dto.Employee;
 import au.com.payroll.dto.PaySlip;
+import au.com.payroll.factory.ResourceFactory;
 import au.com.payroll.repository.IncomeTaxRepositoryImpl;
 import au.com.payroll.repository.IncomeTaxRespository;
 import org.springframework.util.Assert;
@@ -12,12 +13,12 @@ import org.springframework.util.Assert;
  *
  * @author rnadeera
  */
-public class IncomeTaxDecorator extends PaySlipDecorator {
+public class IncomeTaxGenerator extends PaySlipDecorator {
 
-    IncomeTaxRespository incomeTaxRespository = IncomeTaxRepositoryImpl.getInstance();
+    IncomeTaxRespository incomeTaxRespository = ResourceFactory.getIncomeTaxRespository();
 
-    public IncomeTaxDecorator(PaySlipHandler paySlipHandler) {
-        super(paySlipHandler);
+    public IncomeTaxGenerator(PaySlipGenerator paySlipGenerator) {
+        super(paySlipGenerator);
     }
 
     @Override

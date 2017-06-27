@@ -1,4 +1,4 @@
-package au.com.payroll.service.handler;
+package au.com.payroll.service.process;
 
 import au.com.payroll.dto.Employee;
 import au.com.payroll.dto.PaySlip;
@@ -8,7 +8,7 @@ import au.com.payroll.dto.PaySlip;
  *
  * @author rnadeera
  */
-public interface PaySlipHandler {
+public interface PaySlipGenerator {
 
     PaySlip generatePaySlip(PaySlip.PaySlipBuilder paySlipBuilder, Employee employee);
 

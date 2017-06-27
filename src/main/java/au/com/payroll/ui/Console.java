@@ -12,7 +12,7 @@ import java.util.function.Consumer;
  */
 public interface Console {
 
-    String EXIT_OPTION = "EXIT";
+    String EXIT_OPTION = "99";
 
     void start();
 

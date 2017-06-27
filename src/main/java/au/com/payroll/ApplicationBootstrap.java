@@ -8,7 +8,7 @@ import au.com.payroll.ui.ConsoleImpl;
  *
  * @author rnadeera
  */
-public class Application {
+public class ApplicationBootstrap {
     public static void main(String[] args){
         initBootstrap();
 

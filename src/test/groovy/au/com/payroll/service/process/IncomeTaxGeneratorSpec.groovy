@@ -1,4 +1,4 @@
-package au.com.payroll.service.handler
+package au.com.payroll.service.process
 
 import au.com.payroll.domain.IncomeTax
 import au.com.payroll.dto.Employee
@@ -9,12 +9,12 @@ import spock.lang.Specification
 /**
  * @author rnadeera
  */
-class IncomeTaxDecoratorSpec extends Specification {
+class IncomeTaxGeneratorSpec extends Specification {
 
-    IncomeTaxDecorator incomeTaxDecorator
+    IncomeTaxGenerator incomeTaxGenerator
 
     def setup(){
-        incomeTaxDecorator = new IncomeTaxDecorator(new EmployeePaySlip())
+        incomeTaxGenerator = new IncomeTaxGenerator(new EmployeePaySlipGenerator())
     }
 
     def "test generatePaySlip, should set tax value and zero when annual salary is not in taxable margin"(){
@@ -24,7 +24,7 @@ class IncomeTaxDecoratorSpec extends Specification {
         }
 
         and:
-        incomeTaxDecorator.incomeTaxRespository = Mock(IncomeTaxRepositoryImpl){
+        incomeTaxGenerator.incomeTaxRespository = Mock(IncomeTaxRepositoryImpl){
             1 * findByIncomeBracket(_) >> incomeTax
         }
 
@@ -33,7 +33,7 @@ class IncomeTaxDecoratorSpec extends Specification {
                 .setAnnualSalary(60050).build()
 
         when:
-        PaySlip paySlip = incomeTaxDecorator.generatePaySlip(new PaySlip.PaySlipBuilder(), employee)
+        PaySlip paySlip = incomeTaxGenerator.generatePaySlip(new PaySlip.PaySlipBuilder(), employee)
 
         then:
         paySlip.incomeTax == 0
@@ -50,7 +50,7 @@ class IncomeTaxDecoratorSpec extends Specification {
         incomeTax.unitRate      = 0.325
 
         and:
-        incomeTaxDecorator.incomeTaxRespository = Mock(IncomeTaxRepositoryImpl){
+        incomeTaxGenerator.incomeTaxRespository = Mock(IncomeTaxRepositoryImpl){
             1 * findByIncomeBracket(_) >> incomeTax
         }
 
@@ -59,7 +59,7 @@ class IncomeTaxDecoratorSpec extends Specification {
                 .setAnnualSalary(60050).build()
 
         when:
-        PaySlip paySlip = incomeTaxDecorator.generatePaySlip(new PaySlip.PaySlipBuilder(), employee)
+        PaySlip paySlip = incomeTaxGenerator.generatePaySlip(new PaySlip.PaySlipBuilder(), employee)
 
         then:
         paySlip.incomeTax == 922

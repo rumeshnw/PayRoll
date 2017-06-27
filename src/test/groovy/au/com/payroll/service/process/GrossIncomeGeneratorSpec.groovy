@@ -1,4 +1,4 @@
-package au.com.payroll.service.handler
+package au.com.payroll.service.process
 
 import au.com.payroll.dto.Employee
 import au.com.payroll.dto.PaySlip
@@ -7,12 +7,12 @@ import spock.lang.Specification
 /**
  * @author rnadeera
  */
-class GrossIncomeDecoratorSpec extends Specification {
+class GrossIncomeGeneratorSpec extends Specification {
 
-    GrossIncomeDecorator grossIncomeDecorator
+    GrossIncomeGenerator grossIncomeGenerator
 
     def setup(){
-        grossIncomeDecorator = new GrossIncomeDecorator(new EmployeePaySlip())
+        grossIncomeGenerator = new GrossIncomeGenerator(new EmployeePaySlipGenerator())
     }
 
     def "test generatePaySlip, should calculate and set gross income from employee annual salary and return PaySlip instance"(){
@@ -21,7 +21,7 @@ class GrossIncomeDecoratorSpec extends Specification {
                 .setAnnualSalary(60050).build()
 
         when:
-        PaySlip paySlip = grossIncomeDecorator.generatePaySlip(new PaySlip.PaySlipBuilder(), employee)
+        PaySlip paySlip = grossIncomeGenerator.generatePaySlip(new PaySlip.PaySlipBuilder(), employee)
 
         then:
         paySlip
