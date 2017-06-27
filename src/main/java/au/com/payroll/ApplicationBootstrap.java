@@ -13,6 +13,7 @@ public class ApplicationBootstrap {
         initBootstrap();
 
         new ConsoleImpl().start();
+        System.exit(0);
     }
 
     /**
