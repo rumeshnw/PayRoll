@@ -25,10 +25,10 @@ This system uses Gradle build system(version 3.1). However, to use this applicat
     
 Once user execute the Run System command, system will boot up and show list of options with following operations,
     
-    1. Generate employee pay slip
+    1. Generate employee payslip
     99. Exit the system
     
-Once user proceed with Generate employee payslip, system will request multiple inputs in an interactive CLI to generate the pay slip. 
+Once user proceed with _Generate employee payslip_, system will request multiple inputs in an interactive CLI to generate the pay slip. 
         
 Generated payslip will be printed as follows,
     
