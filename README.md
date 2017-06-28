@@ -32,7 +32,7 @@ Once user proceed with _Generate employee payslip_, system will request multiple
         
 Generated payslip will be printed as follows,
     
-    ------------ Pay Slip ------------
+    -------------- Payslip --------------
     Pay Period:     Month of March (1 March to 31 March)
     Employee:       David Rudd
     Gross Income:   5004
