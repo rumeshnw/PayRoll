@@ -55,7 +55,7 @@ public class ConsoleImpl implements Console {
 
     private void showMainMenu(){
         System.out.println("Please select any option to proceed..");
-        System.out.println("-- 1. Generate employee pay slip");
+        System.out.println("-- 1. Generate employee payslip");
         System.out.println("-- 99. Exit the system");
     }
 

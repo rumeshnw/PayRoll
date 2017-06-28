@@ -1,4 +1,4 @@
-# Company Pay Roll
+# Company Payroll
 
 This system uses Gradle build system(version 3.1). However, to use this application or run any of the below commands, you do not need Gradle to be installed.
 
@@ -28,9 +28,9 @@ Once user execute the Run System command, system will boot up and show list of o
     1. Generate employee pay slip
     99. Exit the system
     
-Once user proceed with Generate employee pay slip, system will request multiple inputs in an interactive CLI to generate the pay slip. 
+Once user proceed with Generate employee payslip, system will request multiple inputs in an interactive CLI to generate the pay slip. 
         
-Generated pay slip will be printed as follows,
+Generated payslip will be printed as follows,
     
     ------------ Pay Slip ------------
     Pay Period:     Month of March (1 March to 31 March)
@@ -45,7 +45,5 @@ Test coverage report can be found under _/Payroll/build/reports/coverage/index.h
 
 Assumptions:
 
-    1. User has to enter comma separated employee details as mentioned above in Command Line
-    2. No spaces are allowed in between commas. If exists, system will show "Invalid input format. Please enter valid format and try again (Eg: John,Doe,60500,9,3/2017)." message
-    3. Superannuation percentage can either be define as an integer value or a double value with two decimal places. Eg: both 9 and 9.00 is considered as a valid super percentage
-    4. Pay period should be define as numeric MM/YYYY format. Month can be defined with or without preceding zero. Eg: both 03/2017 and 3/2017 will be considered as a valid pay period
+    1. Superannuation percentage can either be defined as an integer value or a double value with up to two decimal places. Eg: both 9 and 9.00 is considered as a valid super percentage
+    2. Pay period should be defined as MM/YYYY format. Month can be defined with or without preceding zero. Eg: both 03/2017 and 3/2017 will be considered as a valid pay period
