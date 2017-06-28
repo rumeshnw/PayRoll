@@ -5,6 +5,8 @@ import au.com.payroll.repository.IncomeTaxRespository;
 import au.com.payroll.service.PayrollService;
 import au.com.payroll.service.PayrollServiceImpl;
 import au.com.payroll.service.process.*;
+import au.com.payroll.ui.Console;
+import au.com.payroll.ui.ConsoleImpl;
 import au.com.payroll.ui.handler.ExceptionHandler;
 import au.com.payroll.ui.handler.ExceptionHandlerImpl;
 
@@ -19,8 +21,17 @@ public class ResourceFactory {
 
     }
 
+    public static Console getConsole(){
+        ConsoleImpl console = new ConsoleImpl();
+        console.setPayrollService(getPayrollService());
+        console.setExceptionHandler(getExceptionHandler());
+        return console;
+    }
+
     public static PayrollService getPayrollService(){
-        return new PayrollServiceImpl();
+        PayrollServiceImpl payrollService = new PayrollServiceImpl();
+        payrollService.setPaySlipGenerator(getPaySlipGenerator());
+        return payrollService;
     }
 
     public static IncomeTaxRespository getIncomeTaxRespository(){
@@ -48,7 +59,9 @@ public class ResourceFactory {
     }
 
     private static PaySlipGenerator getIncomeTaxGenerator(PaySlipGenerator paySlipGenerator){
-        return new IncomeTaxGenerator(paySlipGenerator);
+        IncomeTaxGenerator incomeTaxGenerator = new IncomeTaxGenerator(paySlipGenerator);
+        incomeTaxGenerator.setIncomeTaxRespository(getIncomeTaxRespository());
+        return incomeTaxGenerator;
     }
 
     private static PaySlipGenerator getGrossIncomeGenerator(PaySlipGenerator paySlipGenerator){

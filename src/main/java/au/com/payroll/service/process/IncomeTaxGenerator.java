@@ -14,7 +14,7 @@ import org.springframework.util.Assert;
  */
 public class IncomeTaxGenerator extends AbstractPaySlipGenerator {
 
-    IncomeTaxRespository incomeTaxRespository = ResourceFactory.getIncomeTaxRespository();
+    IncomeTaxRespository incomeTaxRespository;
 
     public IncomeTaxGenerator(PaySlipGenerator paySlipGenerator) {
         super(paySlipGenerator);
@@ -24,6 +24,10 @@ public class IncomeTaxGenerator extends AbstractPaySlipGenerator {
     public PaySlip generatePaySlip(PaySlip.PaySlipBuilder paySlipBuilder, Employee employee) {
         paySlipBuilder.setIncomeTax(calculateTax(employee));
         return super.generatePaySlip(paySlipBuilder, employee);
+    }
+
+    public void setIncomeTaxRespository(IncomeTaxRespository incomeTaxRespository) {
+        this.incomeTaxRespository = incomeTaxRespository;
     }
 
     private long calculateTax(Employee employee){

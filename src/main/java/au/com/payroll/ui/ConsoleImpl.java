@@ -16,8 +16,8 @@ import java.util.regex.Pattern;
  */
 public class ConsoleImpl implements Console {
 
-    private ExceptionHandler exceptionHandler   = ResourceFactory.getExceptionHandler();
-    private PayrollService payrollService       = ResourceFactory.getPayrollService();
+    private ExceptionHandler exceptionHandler;
+    private PayrollService payrollService;
 
     @Override
     public void start(){
@@ -43,6 +43,14 @@ public class ConsoleImpl implements Console {
                 }
             } while (!EXIT_OPTION.equals(option));
         });
+    }
+
+    public void setExceptionHandler(ExceptionHandler exceptionHandler) {
+        this.exceptionHandler = exceptionHandler;
+    }
+
+    public void setPayrollService(PayrollService payrollService) {
+        this.payrollService = payrollService;
     }
 
     private void showMainMenu(){

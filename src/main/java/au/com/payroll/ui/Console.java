@@ -8,7 +8,7 @@ import java.util.function.Consumer;
 /**
  * Interface to handle CLI. Implement this to handle different CLI logic
  *
- * Created by rnadeera on 25/6/17.
+ * @author rnadeera
  */
 public interface Console {
 

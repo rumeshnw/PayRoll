@@ -1,6 +1,8 @@
 package au.com.payroll;
 
 import au.com.payroll.config.BootstrapData;
+import au.com.payroll.config.HibernateUtil;
+import au.com.payroll.factory.ResourceFactory;
 import au.com.payroll.ui.ConsoleImpl;
 
 /**
@@ -9,18 +11,24 @@ import au.com.payroll.ui.ConsoleImpl;
  * @author rnadeera
  */
 public class ApplicationBootstrap {
-    public static void main(String[] args){
-        initBootstrap();
 
-        new ConsoleImpl().start();
-        System.exit(0);
+    public static void main(String[] args){
+        init();
+        ResourceFactory.getConsole().start();
+        destroy();
     }
 
     /**
-     * Contains any bootstrap related method call
-     *
+     * Contains bootstrap related method call
      */
-    private static void initBootstrap(){
+    private static void init(){
         new BootstrapData().initData();
+    }
+
+    /**
+     * Destroy resources before shutting down the application
+     */
+    private static void destroy(){
+        HibernateUtil.getSessionFactory().close();
     }
 }

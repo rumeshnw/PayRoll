@@ -15,11 +15,15 @@ import java.util.regex.Pattern;
  */
 public class PayrollServiceImpl implements PayrollService {
 
-    private PaySlipGenerator paySlipGenerator = ResourceFactory.getPaySlipGenerator();
+    private PaySlipGenerator paySlipGenerator;
 
     @Override
     public PaySlip generatePaySlip(Employee employee) {
         Assert.notNull(employee, "employee details required");
         return paySlipGenerator.generatePaySlip(new PaySlip.PaySlipBuilder(), employee);
+    }
+
+    public void setPaySlipGenerator(PaySlipGenerator paySlipGenerator) {
+        this.paySlipGenerator = paySlipGenerator;
     }
 }
