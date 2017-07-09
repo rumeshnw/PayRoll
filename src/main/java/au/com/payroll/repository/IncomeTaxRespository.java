@@ -2,6 +2,8 @@ package au.com.payroll.repository;
 
 import au.com.payroll.domain.IncomeTax;
 
+import java.util.Optional;
+
 /**
  * @author rnadeera
  */
@@ -13,5 +15,5 @@ public interface IncomeTaxRespository {
      * @param income Annual salary of the employee
      * @return {@link IncomeTax} instance
      */
-    IncomeTax findByIncomeBracket(int income);
+    Optional<IncomeTax> findByIncomeBracket(int income);
 }

@@ -7,6 +7,8 @@ import au.com.payroll.factory.ResourceFactory;
 import au.com.payroll.repository.IncomeTaxRespository;
 import org.springframework.util.Assert;
 
+import java.util.Optional;
+
 /**
  * Concrete decorator to calculate income tax
  *
@@ -32,11 +34,11 @@ public class IncomeTaxGenerator extends AbstractPaySlipGenerator {
 
     private long calculateTax(Employee employee){
 
-        IncomeTax incomeTax = incomeTaxRespository.findByIncomeBracket(employee.getAnnualSalary());
-        Assert.notNull(incomeTax, "Tax definition not available");
+        Optional<IncomeTax> incomeTax = incomeTaxRespository.findByIncomeBracket(employee.getAnnualSalary());
+        Assert.isTrue(incomeTax.isPresent(), "Tax definition not available");
 
-        if(incomeTax.isTaxable()){
-            return Math.round((incomeTax.getMarginalTax() + (employee.getAnnualSalary() - incomeTax.getThreshold()) * incomeTax.getUnitRate()) / 12);
+        if(incomeTax.get().isTaxable()){
+            return Math.round((incomeTax.get().getMarginalTax() + (employee.getAnnualSalary() - incomeTax.get().getThreshold()) * incomeTax.get().getUnitRate()) / 12);
         }
 
         return 0;

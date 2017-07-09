@@ -25,7 +25,7 @@ class IncomeTaxGeneratorSpec extends Specification {
 
         and:
         incomeTaxGenerator.incomeTaxRespository = Mock(IncomeTaxRepositoryImpl){
-            1 * findByIncomeBracket(_) >> incomeTax
+            1 * findByIncomeBracket(_) >> Optional.of(incomeTax)
         }
 
         and:
@@ -51,7 +51,7 @@ class IncomeTaxGeneratorSpec extends Specification {
 
         and:
         incomeTaxGenerator.incomeTaxRespository = Mock(IncomeTaxRepositoryImpl){
-            1 * findByIncomeBracket(_) >> incomeTax
+            1 * findByIncomeBracket(_) >> Optional.of(incomeTax)
         }
 
         and:
